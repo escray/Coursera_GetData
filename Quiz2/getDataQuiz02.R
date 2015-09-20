@@ -7,9 +7,19 @@ myapp <- oauth_app("github",
 github_token <- oauth2.0_token(oauth_endpoints("github"), myapp, cache=FALSE)
 gtoken <- config(token = github_token)
 req <- GET("https://api.github.com/rate_limit", gtoken)
-req <- GET("https://api.github.com/rate_limit")
 stop_for_status(req)
 content(req)
+
+req$rate$limit
+jtleek <- GET("https://api.github.com/users/jtleek/repos", gtoken)
+jtleekContent <- content(jtleek)
+
+
+for (i in 1: length(jtleekContent)) {
+        if (jtleekContent[[i]]$name == "datasharing") {
+                print(jtleekContent[[i]]$created_at)                
+        }
+}
 
 library(jsonlite)
 jsonData <- fromJSON("https://api.github.com/users/jtleek/repos")
