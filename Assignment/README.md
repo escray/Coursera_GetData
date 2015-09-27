@@ -1,6 +1,8 @@
 The run_analysis.R script get the sumsang data from "UCI HAR DataSet" directory, 
 then do some stuff, at the end output the tidy data in "tidydata.txt" file.
 
+If you store the origin data in different folder, please change the parameters of read.table method
+
 #### step 1:  Merges the training and the test sets to create one data set.
 
 first read the data from files
