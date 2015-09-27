@@ -7,3 +7,6 @@ imdb.txt
 jleek.html
 tmp.txt
 data/*
+.RData
+.Rhistory
+Quiz3/getdata-data-PUMSDataDict06.pdf

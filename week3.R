@@ -216,3 +216,27 @@ df2 = data.frame(id=sample(1:10), y = rnorm(10))
 df3 = data.frame(id=sample(1:10), z = rnorm(10))
 dfList = list(df1, df2, df3)
 join_all(dfList)
+
+
+
+data(mtcars)
+mtcars
+
+narrow <- mtcars[, c("cyl", "gear", "vs", "mpg")]
+narrow
+
+library(reshape2)
+wide1 <- tidied <- dcast(narrow, cyl + gear ~ vs, max)
+wide1
+
+wide2 <- tidied <- dcast(narrow, cyl + vs ~ gear, max)
+wide2
+
+wide3 <- tidied <- dcast(narrow, gear + vs ~ cyl, max)
+wide3
+
+notverywide <- aggregate(mpg ~ gear + vs + cyl, data = narrow, max)
+notverywide
+
+untidy <- with(narrow, tapply(mpg, list(cyl, vs, gear), max))
+untidy
