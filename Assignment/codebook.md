@@ -38,4 +38,6 @@ Rename the variables(columns) to meaningful names from features.txt.
 Using group_by and summarize_each method to get the tidy data 
 include with the average of each variable for each activity and each subject.
 
+#### Output
+
 This result is output as tidydata.txt
